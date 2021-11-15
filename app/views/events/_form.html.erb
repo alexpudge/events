@@ -1,0 +1,239 @@
+<% was_validated = event.errors.any? %>
+
+<%= form_with(model: event, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for start_date start -->
+  <div class="form-group">
+    <% start_date_class = "form-control" %>
+    <% start_date_was_invalid = event.errors.include?(:start_date) %>
+
+    <% if was_validated %>
+      <% if start_date_was_invalid %>
+        <% start_date_class << " is-invalid" %>
+      <% else %>
+        <% start_date_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :start_date %>
+    <!-- Input for start_date start -->
+    <%= f.date_select :start_date, class: start_date_class, placeholder: "Enter start date" %>
+    <!-- Input for start_date end -->
+    <% if start_date_was_invalid %>
+      <% event.errors.full_messages_for(:start_date).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for start_date end -->
+  <!-- Label and input for start_time start -->
+  <div class="form-group">
+    <% start_time_class = "form-control" %>
+    <% start_time_was_invalid = event.errors.include?(:start_time) %>
+
+    <% if was_validated %>
+      <% if start_time_was_invalid %>
+        <% start_time_class << " is-invalid" %>
+      <% else %>
+        <% start_time_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :start_time %>
+    <!-- Input for start_time start -->
+    <%= f.text_field :start_time, class: start_time_class, placeholder: "Enter start time" %>
+    <!-- Input for start_time end -->
+    <% if start_time_was_invalid %>
+      <% event.errors.full_messages_for(:start_time).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for start_time end -->
+  <!-- Label and input for end_date start -->
+  <div class="form-group">
+    <% end_date_class = "form-control" %>
+    <% end_date_was_invalid = event.errors.include?(:end_date) %>
+
+    <% if was_validated %>
+      <% if end_date_was_invalid %>
+        <% end_date_class << " is-invalid" %>
+      <% else %>
+        <% end_date_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :end_date %>
+    <!-- Input for end_date start -->
+    <%= f.date_select :end_date, class: end_date_class, placeholder: "Enter end date" %>
+    <!-- Input for end_date end -->
+    <% if end_date_was_invalid %>
+      <% event.errors.full_messages_for(:end_date).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for end_date end -->
+  <!-- Label and input for end_time start -->
+  <div class="form-group">
+    <% end_time_class = "form-control" %>
+    <% end_time_was_invalid = event.errors.include?(:end_time) %>
+
+    <% if was_validated %>
+      <% if end_time_was_invalid %>
+        <% end_time_class << " is-invalid" %>
+      <% else %>
+        <% end_time_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :end_time %>
+    <!-- Input for end_time start -->
+    <%= f.text_field :end_time, class: end_time_class, placeholder: "Enter end time" %>
+    <!-- Input for end_time end -->
+    <% if end_time_was_invalid %>
+      <% event.errors.full_messages_for(:end_time).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for end_time end -->
+  <!-- Label and input for address start -->
+  <div class="form-group">
+    <% address_class = "form-control" %>
+    <% address_was_invalid = event.errors.include?(:address) %>
+
+    <% if was_validated %>
+      <% if address_was_invalid %>
+        <% address_class << " is-invalid" %>
+      <% else %>
+        <% address_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :address %>
+    <!-- Input for address start -->
+    <%= f.text_field :address, class: address_class, placeholder: "Enter address" %>
+    <!-- Input for address end -->
+    <% if address_was_invalid %>
+      <% event.errors.full_messages_for(:address).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for address end -->
+  <!-- Label and input for details start -->
+  <div class="form-group">
+    <% detail_class = "form-control" %>
+    <% detail_was_invalid = event.errors.include?(:detail) %>
+
+    <% if was_validated %>
+      <% if detail_was_invalid %>
+        <% detail_class << " is-invalid" %>
+      <% else %>
+        <% detail_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :details %>
+    <!-- Input for details start -->
+    <%= f.text_field :details, class: detail_class, placeholder: "Enter detail" %>
+    <!-- Input for details end -->
+    <% if detail_was_invalid %>
+      <% event.errors.full_messages_for(:detail).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for details end -->
+  <!-- Label and input for photo start -->
+  <div class="form-group">
+    <% photo_class = "form-control" %>
+    <% photo_was_invalid = event.errors.include?(:photo) %>
+
+    <% if was_validated %>
+      <% if photo_was_invalid %>
+        <% photo_class << " is-invalid" %>
+      <% else %>
+        <% photo_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :photo %>
+    <!-- Input for photo start -->
+    <%= f.text_field :photo, class: photo_class, placeholder: "Enter photo" %>
+    <!-- Input for photo end -->
+    <% if photo_was_invalid %>
+      <% event.errors.full_messages_for(:photo).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for photo end -->
+  <!-- Label and input for status start -->
+  <div class="form-group">
+    <% status_class = "form-control" %>
+    <% status_was_invalid = event.errors.include?(:status) %>
+
+    <% if was_validated %>
+      <% if status_was_invalid %>
+        <% status_class << " is-invalid" %>
+      <% else %>
+        <% status_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :status %>
+    <!-- Input for status start -->
+    <%= f.text_field :status, class: status_class, placeholder: "Enter status" %>
+    <!-- Input for status end -->
+    <% if status_was_invalid %>
+      <% event.errors.full_messages_for(:status).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for status end -->
+  <!-- Label and input for user_id start -->
+  <div class="form-group">
+    <% user_class = "form-control" %>
+    <% user_was_invalid = event.errors.include?(:user) %>
+
+    <% if was_validated %>
+      <% if user_was_invalid %>
+        <% user_class << " is-invalid" %>
+      <% else %>
+        <% user_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :user_id %>
+    <!-- Input for user_id start -->
+    <%= f.number_field :user_id, class: user_class, placeholder: "Enter user" %>
+    <!-- Input for user_id end -->
+    <% if user_was_invalid %>
+      <% event.errors.full_messages_for(:user).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for user_id end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>

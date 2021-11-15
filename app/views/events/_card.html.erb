@@ -1,0 +1,81 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Event #<%= event.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Start date</dt>
+      <!-- Display start_date start -->
+      <dd><%= event.start_date %></dd>
+      <!-- Display start_date end -->
+
+      <dt>Start time</dt>
+      <!-- Display start_time start -->
+      <dd><%= event.start_time %></dd>
+      <!-- Display start_time end -->
+
+      <dt>End date</dt>
+      <!-- Display end_date start -->
+      <dd><%= event.end_date %></dd>
+      <!-- Display end_date end -->
+
+      <dt>End time</dt>
+      <!-- Display end_time start -->
+      <dd><%= event.end_time %></dd>
+      <!-- Display end_time end -->
+
+      <dt>Address</dt>
+      <!-- Display address start -->
+      <dd><%= event.address %></dd>
+      <!-- Display address end -->
+
+      <dt>Details</dt>
+      <!-- Display details start -->
+      <dd><%= event.details %></dd>
+      <!-- Display details end -->
+
+      <dt>Photo</dt>
+      <!-- Display photo start -->
+      <dd><%= event.photo %></dd>
+      <!-- Display photo end -->
+
+      <dt>Status</dt>
+      <!-- Display status start -->
+      <dd><%= event.status %></dd>
+      <!-- Display status end -->
+
+      <dt>User</dt>
+      <!-- Display user_id start -->
+      <dd><%= event.user_id %></dd>
+      <!-- Display user_id end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back event, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link event start -->
+      <div class="col">
+        <%= link_to edit_event_url(event), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link event end -->
+
+      <!-- Delete link event start -->
+      <div class="col">
+        <%= link_to event, method: :delete, data: { confirm: "Do you really want to delete this event?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link event end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(event.updated_at) %> ago
+  </div>
+</div>
