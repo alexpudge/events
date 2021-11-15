@@ -2,13 +2,13 @@ class Comment < ApplicationRecord
   # Direct associations
 
   belongs_to :comment_board,
-             :class_name => "Event",
-             :foreign_key => "event_id",
-             :counter_cache => true
+             class_name: "Event",
+             foreign_key: "event_id",
+             counter_cache: true
 
   belongs_to :commenter,
-             :class_name => "User",
-             :foreign_key => "user_id"
+             class_name: "User",
+             foreign_key: "user_id"
 
   # Indirect associations
 
@@ -19,5 +19,4 @@ class Comment < ApplicationRecord
   def to_s
     commenter.to_s
   end
-
 end

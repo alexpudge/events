@@ -2,11 +2,11 @@ class Interest < ApplicationRecord
   # Direct associations
 
   belongs_to :event,
-             :counter_cache => :guests_count
+             counter_cache: :guests_count
 
   belongs_to :guest,
-             :class_name => "User",
-             :foreign_key => "user_id"
+             class_name: "User",
+             foreign_key: "user_id"
 
   # Indirect associations
 
@@ -17,5 +17,4 @@ class Interest < ApplicationRecord
   def to_s
     guest.to_s
   end
-
 end

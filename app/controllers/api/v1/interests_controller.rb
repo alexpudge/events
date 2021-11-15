@@ -13,7 +13,7 @@ class Api::V1::InterestsController < Api::V1::GraphitiController
     interest = InterestResource.build(params)
 
     if interest.save
-      render jsonapi: interest, status: 201
+      render jsonapi: interest, status: :created
     else
       render jsonapi_errors: interest
     end
@@ -33,7 +33,7 @@ class Api::V1::InterestsController < Api::V1::GraphitiController
     interest = InterestResource.find(params)
 
     if interest.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: interest
     end
