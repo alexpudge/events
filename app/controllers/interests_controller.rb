@@ -1,4 +1,6 @@
 class InterestsController < ApplicationController
+  before_action :current_user_must_be_interest_guest, only: [:edit, :update, :destroy] 
+
   before_action :set_interest, only: [:show, :edit, :update, :destroy]
 
   # GET /interests
@@ -57,6 +59,14 @@ class InterestsController < ApplicationController
 
 
   private
+
+  def current_user_must_be_interest_guest
+    set_interest
+    unless current_user == @interest.guest
+      redirect_back fallback_location: root_path, alert: "You are not authorized for that."
+    end
+  end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_interest
       @interest = Interest.find(params[:id])

@@ -29,16 +29,20 @@
 
       <!-- Edit link interest start -->
       <div class="col">
-        <%= link_to edit_interest_url(interest), class: "btn btn-block btn-outline-secondary" do %>
-          <i class="fas fa-edit"></i>
+        <% if current_user == @interest.guest %>
+          <%= link_to edit_interest_url(interest), class: "btn btn-block btn-sm btn-outline-secondary" do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
         <% end %>
       </div>
       <!-- Edit link interest end -->
 
       <!-- Delete link interest start -->
       <div class="col">
-        <%= link_to interest, method: :delete, data: { confirm: "Do you really want to delete this interest?" }, class: "btn btn-block btn-outline-secondary" do %>
-          <i class="fas fa-trash-alt"></i>
+        <% if current_user == @interest.guest %>
+          <%= link_to interest, method: :delete, data: { confirm: "Do you really want to delete this interest?" }, class: "btn btn-block btn-outline-secondary" do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
         <% end %>
       </div>
       <!-- Delete link interest end -->
