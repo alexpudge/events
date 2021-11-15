@@ -27,7 +27,11 @@
 
       <dt>Address</dt>
       <!-- Display address start -->
-      <dd><%= event.address %></dd>
+      <dd>
+        <div>
+          <%= render partial: "events/one_photo_map" %>
+        </div>
+      </dd>
       <!-- Display address end -->
 
       <dt>Details</dt>
