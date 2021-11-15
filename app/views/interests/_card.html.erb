@@ -7,12 +7,20 @@
     <dl class="mb-1">
       <dt>User</dt>
       <!-- Display user_id start -->
-      <dd><%= interest.user_id %></dd>
+      <dd>
+        <% if @interest.guest.present? %>
+          <%= link_to interest.guest, interest.guest %>
+        <% end %>
+      </dd>
       <!-- Display user_id end -->
 
       <dt>Event</dt>
       <!-- Display event_id start -->
-      <dd><%= interest.event_id %></dd>
+      <dd>
+        <% if @interest.event.present? %>
+          <%= link_to interest.event, interest.event %>
+        <% end %>
+      </dd>
       <!-- Display event_id end -->
 
       <dt>Response</dt>

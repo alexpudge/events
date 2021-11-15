@@ -53,7 +53,11 @@
 
       <dt>User</dt>
       <!-- Display user_id start -->
-      <dd><%= event.user_id %></dd>
+      <dd>
+        <% if @event.host.present? %>
+          <%= link_to event.host, event.host %>
+        <% end %>
+      </dd>
       <!-- Display user_id end -->
 
     </dl>
