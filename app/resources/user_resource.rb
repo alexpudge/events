@@ -10,6 +10,9 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :rsvps,
+             resource: InterestResource
+
   has_many   :comments
 
   has_many   :events

@@ -8,6 +8,10 @@ class InterestResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :guest,
+             resource: UserResource,
+             foreign_key: :user_id
+
   # Indirect associations
 
 end
