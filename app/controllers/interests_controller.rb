@@ -5,7 +5,7 @@ class InterestsController < ApplicationController
 
   # GET /interests
   def index
-    @interests = Interest.all
+    @interests = Interest.page(params[:page]).per(10)
   end
 
   # GET /interests/1
