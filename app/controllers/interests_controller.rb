@@ -5,7 +5,8 @@ class InterestsController < ApplicationController
 
   # GET /interests
   def index
-    @interests = Interest.page(params[:page]).per(10)
+    @q = Interest.ransack(params[:q])
+    @interests = @q.result(:distinct => true).includes(:guest, :event).page(params[:page]).per(10)
   end
 
   # GET /interests/1
