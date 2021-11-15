@@ -1,0 +1,29 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Rsvps
+
+    <a data-toggle="collapse" href="#user_rsvps_new_form">
+      Add interest
+    </a>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @user.rsvps.each do |interest| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <!-- Show link start -->
+        <%= link_to interest, interest %>
+        <!-- Show link end -->
+
+      </li>
+    <% end %>
+
+    <div class="card-footer">
+      <div class="collapse" id="user_rsvps_new_form">
+        <!-- New associationcollection form start -->
+
+        <!-- New associationcollection form end -->
+      </div>
+    </div>
+
+  </ul>
+</div>

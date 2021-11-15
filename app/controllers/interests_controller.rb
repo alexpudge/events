@@ -42,8 +42,14 @@ class InterestsController < ApplicationController
   # DELETE /interests/1
   def destroy
     @interest.destroy
-    redirect_to interests_url, notice: 'Interest was successfully destroyed.'
+    message = "Interest was successfully deleted."
+    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referrer, notice: message
+    else
+      redirect_to interests_url, notice: message
+    end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
