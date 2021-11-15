@@ -24,7 +24,12 @@ class InterestsController < ApplicationController
     @interest = Interest.new(interest_params)
 
     if @interest.save
-      redirect_to @interest, notice: 'Interest was successfully created.'
+      message = 'Interest was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @interest, notice: message
+      end
     else
       render :new
     end
