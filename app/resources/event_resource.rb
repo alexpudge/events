@@ -14,6 +14,10 @@ class EventResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :host,
+             resource: UserResource,
+             foreign_key: :user_id
+
   # Indirect associations
 
 end
