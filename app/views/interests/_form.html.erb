@@ -1,0 +1,83 @@
+<% was_validated = interest.errors.any? %>
+
+<%= form_with(model: interest, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for user_id start -->
+  <div class="form-group">
+    <% user_class = "form-control" %>
+    <% user_was_invalid = interest.errors.include?(:user) %>
+
+    <% if was_validated %>
+      <% if user_was_invalid %>
+        <% user_class << " is-invalid" %>
+      <% else %>
+        <% user_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :user_id %>
+    <!-- Input for user_id start -->
+    <%= f.number_field :user_id, class: user_class, placeholder: "Enter user" %>
+    <!-- Input for user_id end -->
+    <% if user_was_invalid %>
+      <% interest.errors.full_messages_for(:user).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for user_id end -->
+  <!-- Label and input for event_id start -->
+  <div class="form-group">
+    <% event_class = "form-control" %>
+    <% event_was_invalid = interest.errors.include?(:event) %>
+
+    <% if was_validated %>
+      <% if event_was_invalid %>
+        <% event_class << " is-invalid" %>
+      <% else %>
+        <% event_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :event_id %>
+    <!-- Input for event_id start -->
+    <%= f.number_field :event_id, class: event_class, placeholder: "Enter event" %>
+    <!-- Input for event_id end -->
+    <% if event_was_invalid %>
+      <% interest.errors.full_messages_for(:event).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for event_id end -->
+  <!-- Label and input for response start -->
+  <div class="form-group">
+    <% response_class = "form-control" %>
+    <% response_was_invalid = interest.errors.include?(:response) %>
+
+    <% if was_validated %>
+      <% if response_was_invalid %>
+        <% response_class << " is-invalid" %>
+      <% else %>
+        <% response_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :response %>
+    <!-- Input for response start -->
+    <%= f.text_field :response, class: response_class, placeholder: "Enter response" %>
+    <!-- Input for response end -->
+    <% if response_was_invalid %>
+      <% interest.errors.full_messages_for(:response).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for response end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>

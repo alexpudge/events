@@ -1,0 +1,51 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Interest #<%= interest.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>User</dt>
+      <!-- Display user_id start -->
+      <dd><%= interest.user_id %></dd>
+      <!-- Display user_id end -->
+
+      <dt>Event</dt>
+      <!-- Display event_id start -->
+      <dd><%= interest.event_id %></dd>
+      <!-- Display event_id end -->
+
+      <dt>Response</dt>
+      <!-- Display response start -->
+      <dd><%= interest.response %></dd>
+      <!-- Display response end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back interest, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link interest start -->
+      <div class="col">
+        <%= link_to edit_interest_url(interest), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link interest end -->
+
+      <!-- Delete link interest start -->
+      <div class="col">
+        <%= link_to interest, method: :delete, data: { confirm: "Do you really want to delete this interest?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link interest end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(interest.updated_at) %> ago
+  </div>
+</div>
