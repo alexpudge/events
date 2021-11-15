@@ -1,6 +1,10 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :rsvps,
+             :class_name => "Interest",
+             :dependent => :destroy
+
   has_many   :comments,
              :dependent => :destroy
 
