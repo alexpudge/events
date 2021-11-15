@@ -1,32 +1,18 @@
-<!-- Form interest start -->
 <%= form_with(model: @interest, local: true) do |f| %>
-<!-- Form interest end -->
 
-  <!-- Label and input for user_id start -->
-  <!-- Input for user_id start -->
   <%= f.hidden_field :user_id, value: @user.id %>
-  <!-- Input for user_id end -->
-  <!-- Label and input for user_id end -->
 
-  <!-- Label and input for event_id start -->
   <div class="form-group">
     <%= f.label :event_id %>
 
-    <!-- Input for event_id start -->
     <%= f.collection_select :event_id, Event.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for event_id end -->
   </div>
-  <!-- Label and input for event_id end -->
 
-  <!-- Label and input for response start -->
   <div class="form-group">
     <%= f.label :response %>
 
-    <!-- Input for response start -->
     <%= f.text_field :response, class: "form-control" %>
-    <!-- Input for response end -->
   </div>
-  <!-- Label and input for response end -->
 
   <%= f.submit "Create interest", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

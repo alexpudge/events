@@ -1,7 +1,6 @@
 <% was_validated = user.errors.any? %>
 
 <%= form_with(model: user, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for firstname start -->
   <div class="form-group">
     <% firstname_class = "form-control" %>
     <% firstname_was_invalid = user.errors.include?(:firstname) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :firstname %>
-    <!-- Input for firstname start -->
     <%= f.text_field :firstname, class: firstname_class, placeholder: "Enter firstname" %>
-    <!-- Input for firstname end -->
     <% if firstname_was_invalid %>
       <% user.errors.full_messages_for(:firstname).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for firstname end -->
-  <!-- Label and input for lastname start -->
   <div class="form-group">
     <% lastname_class = "form-control" %>
     <% lastname_was_invalid = user.errors.include?(:lastname) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :lastname %>
-    <!-- Input for lastname start -->
     <%= f.text_field :lastname, class: lastname_class, placeholder: "Enter lastname" %>
-    <!-- Input for lastname end -->
     <% if lastname_was_invalid %>
       <% user.errors.full_messages_for(:lastname).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for lastname end -->
-  <!-- Label and input for status start -->
   <div class="form-group">
     <% status_class = "form-control" %>
     <% status_was_invalid = user.errors.include?(:status) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :status %>
-    <!-- Input for status start -->
     <%= f.text_field :status, class: status_class, placeholder: "Enter status" %>
-    <!-- Input for status end -->
     <% if status_was_invalid %>
       <% user.errors.full_messages_for(:status).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,6 +67,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for status end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

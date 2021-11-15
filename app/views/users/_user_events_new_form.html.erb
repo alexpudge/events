@@ -1,92 +1,54 @@
-<!-- Form event start -->
 <%= form_with(model: @event, local: true) do |f| %>
-<!-- Form event end -->
 
-  <!-- Label and input for start_date start -->
   <div class="form-group">
     <%= f.label :start_date %>
 
-    <!-- Input for start_date start -->
     <%= f.date_select :start_date, class: "form-control" %>
-    <!-- Input for start_date end -->
   </div>
-  <!-- Label and input for start_date end -->
 
-  <!-- Label and input for start_time start -->
   <div class="form-group">
     <%= f.label :start_time %>
 
-    <!-- Input for start_time start -->
     <%= f.text_field :start_time, class: "form-control" %>
-    <!-- Input for start_time end -->
   </div>
-  <!-- Label and input for start_time end -->
 
-  <!-- Label and input for end_date start -->
   <div class="form-group">
     <%= f.label :end_date %>
 
-    <!-- Input for end_date start -->
     <%= f.date_select :end_date, class: "form-control" %>
-    <!-- Input for end_date end -->
   </div>
-  <!-- Label and input for end_date end -->
 
-  <!-- Label and input for end_time start -->
   <div class="form-group">
     <%= f.label :end_time %>
 
-    <!-- Input for end_time start -->
     <%= f.text_field :end_time, class: "form-control" %>
-    <!-- Input for end_time end -->
   </div>
-  <!-- Label and input for end_time end -->
 
-  <!-- Label and input for address start -->
   <div class="form-group">
     <%= f.label :address %>
 
-    <!-- Input for address start -->
     <%= f.text_field :address, class: "form-control" %>
-    <!-- Input for address end -->
   </div>
-  <!-- Label and input for address end -->
 
-  <!-- Label and input for details start -->
   <div class="form-group">
     <%= f.label :details %>
 
-    <!-- Input for details start -->
     <%= f.text_field :details, class: "form-control" %>
-    <!-- Input for details end -->
   </div>
-  <!-- Label and input for details end -->
 
-  <!-- Label and input for photo start -->
   <div class="form-group">
     <%= f.label :photo %>
 
-    <!-- Input for photo start -->
     <%= f.file_field :photo, class: "form-control" %>
-    <!-- Input for photo end -->
   </div>
-  <!-- Label and input for photo end -->
 
-  <!-- Label and input for status start -->
   <div class="form-group">
     <%= f.label :status %>
 
-    <!-- Input for status start -->
     <%= f.text_field :status, class: "form-control" %>
-    <!-- Input for status end -->
   </div>
-  <!-- Label and input for status end -->
 
-  <!-- Label and input for user_id start -->
-  <!-- Input for user_id start -->
   <%= f.hidden_field :user_id, value: @user.id %>
-  <!-- Input for user_id end -->
-  <!-- Label and input for user_id end -->
 
   <%= f.submit "Create event", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

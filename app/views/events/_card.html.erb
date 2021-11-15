@@ -6,59 +6,41 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Start date</dt>
-      <!-- Display start_date start -->
       <dd><%= event.start_date %></dd>
-      <!-- Display start_date end -->
 
       <dt>Start time</dt>
-      <!-- Display start_time start -->
       <dd><%= event.start_time %></dd>
-      <!-- Display start_time end -->
 
       <dt>End date</dt>
-      <!-- Display end_date start -->
       <dd><%= event.end_date %></dd>
-      <!-- Display end_date end -->
 
       <dt>End time</dt>
-      <!-- Display end_time start -->
       <dd><%= event.end_time %></dd>
-      <!-- Display end_time end -->
 
       <dt>Address</dt>
-      <!-- Display address start -->
       <dd>
         <div>
           <%= render partial: "events/one_photo_map" %>
         </div>
       </dd>
-      <!-- Display address end -->
 
       <dt>Details</dt>
-      <!-- Display details start -->
       <dd><%= event.details %></dd>
-      <!-- Display details end -->
 
       <dt>Photo</dt>
-      <!-- Display photo start -->
       <dd>
         <%= cl_image_tag @event.photo, class: "img-fluid" %>
       </dd>
-      <!-- Display photo end -->
 
       <dt>Status</dt>
-      <!-- Display status start -->
       <dd><%= event.status %></dd>
-      <!-- Display status end -->
 
       <dt>User</dt>
-      <!-- Display user_id start -->
       <dd>
         <% if @event.host.present? %>
           <%= link_to event.host, event.host %>
         <% end %>
       </dd>
-      <!-- Display user_id end -->
 
     </dl>
 
@@ -67,21 +49,17 @@
         <%= link_to_show_or_back event, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link event start -->
       <div class="col">
         <%= link_to edit_event_url(event), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link event end -->
 
-      <!-- Delete link event start -->
       <div class="col">
         <%= link_to event, method: :delete, data: { confirm: "Do you really want to delete this event?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link event end -->
     </div>
   </div>
 

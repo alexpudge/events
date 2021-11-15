@@ -6,27 +6,21 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>User</dt>
-      <!-- Display user_id start -->
       <dd>
         <% if @interest.guest.present? %>
           <%= link_to interest.guest, interest.guest %>
         <% end %>
       </dd>
-      <!-- Display user_id end -->
 
       <dt>Event</dt>
-      <!-- Display event_id start -->
       <dd>
         <% if @interest.event.present? %>
           <%= link_to interest.event, interest.event %>
         <% end %>
       </dd>
-      <!-- Display event_id end -->
 
       <dt>Response</dt>
-      <!-- Display response start -->
       <dd><%= interest.response %></dd>
-      <!-- Display response end -->
 
     </dl>
 
@@ -35,7 +29,6 @@
         <%= link_to_show_or_back interest, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link interest start -->
       <div class="col">
         <% if current_user == @interest.guest %>
           <%= link_to edit_interest_url(interest), class: "btn btn-block btn-sm btn-outline-secondary" do %>
@@ -43,9 +36,7 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Edit link interest end -->
 
-      <!-- Delete link interest start -->
       <div class="col">
         <% if current_user == @interest.guest %>
           <%= link_to interest, method: :delete, data: { confirm: "Do you really want to delete this interest?" }, class: "btn btn-block btn-outline-secondary" do %>
@@ -53,7 +44,6 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Delete link interest end -->
     </div>
   </div>
 
