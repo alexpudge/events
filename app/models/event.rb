@@ -1,6 +1,10 @@
 class Event < ApplicationRecord
   # Direct associations
 
+  has_many   :guests,
+             :class_name => "Interest",
+             :dependent => :destroy
+
   has_many   :comments,
              :dependent => :destroy
 
