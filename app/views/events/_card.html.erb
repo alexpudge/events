@@ -37,7 +37,9 @@
 
       <dt>Photo</dt>
       <!-- Display photo start -->
-      <dd><%= event.photo %></dd>
+      <dd>
+        <%= cl_image_tag @event.photo, class: "img-fluid" %>
+      </dd>
       <!-- Display photo end -->
 
       <dt>Status</dt>
