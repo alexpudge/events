@@ -14,6 +14,8 @@ class EventResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :comments
+
   belongs_to :host,
              resource: UserResource,
              foreign_key: :user_id

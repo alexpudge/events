@@ -8,6 +8,10 @@ class CommentResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :comment_board,
+             resource: EventResource,
+             foreign_key: :event_id
+
   belongs_to :commenter,
              resource: UserResource,
              foreign_key: :user_id
