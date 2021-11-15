@@ -8,6 +8,8 @@ class InterestResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :event
+
   belongs_to :guest,
              resource: UserResource,
              foreign_key: :user_id

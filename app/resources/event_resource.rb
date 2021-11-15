@@ -14,6 +14,9 @@ class EventResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :guests,
+             resource: InterestResource
+
   has_many   :comments
 
   belongs_to :host,
